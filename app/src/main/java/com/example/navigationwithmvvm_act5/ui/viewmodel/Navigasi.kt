@@ -53,7 +53,7 @@ fun Navigasi(
                 DetailMahasiswaView(
                     dataMhs = uiState,
                     modifier = Modifier,
-                    onClickButton = {
+                    onBackButtonClicked = {
                         navHost.popBackStack()
                     }
                 )

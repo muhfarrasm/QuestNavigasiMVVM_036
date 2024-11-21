@@ -21,6 +21,8 @@ fun DetailMahasiswaView(
         Pair("Nama", dataMhs.nama),
         Pair("Gender", dataMhs.gender),
         Pair("Alamat", dataMhs.alamat),
+        Pair("email", dataMhs.email),
+        Pair("nohp", dataMhs.nohp),
 
 
     )

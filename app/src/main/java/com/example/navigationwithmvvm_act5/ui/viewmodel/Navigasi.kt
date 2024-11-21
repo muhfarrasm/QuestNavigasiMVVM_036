@@ -15,6 +15,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.navigationwithmvvm_act5.model.ListGender
+import com.example.navigationwithmvvm_act5.ui.view.DetailMahasiswaView
 import com.example.navigationwithmvvm_act5.ui.view.FormMahasiswaView
 
 enum class Halaman{
@@ -35,11 +36,11 @@ fun Navigasi(
             navController = navHost,
             startDestination = Halaman.Form.name
         ) {
-            composable(route = Halaman.Form.name){
+            composable(route = Halaman.Form.name) {
                 val konteks = LocalContext.current
                 FormMahasiswaView(
-                    listgender = ListGender.listGender.map {
-                        id -> konteks.getString(id)
+                    listgender = ListGender.listGender.map { id ->
+                        konteks.getString(id)
                     },
                     onSubmitClick = {
                         viewModel.saveDataMhs(it)
@@ -47,15 +48,23 @@ fun Navigasi(
                     }
                 )
             }
+            composable(route = Halaman.Data.name)
+            {
+                DetailMahasiswaView(
+                    dataMhs = uiState,
+                    modifier = Modifier,
+                    onClickButton = {
+                        navHost.popBackStack()
+                    }
+                )
+            }
 
         }
 
 
-
     }
 
-
-
-
-
 }
+
+
+
